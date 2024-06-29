@@ -35,7 +35,9 @@ are empty placeholders for when you want to customize Pihole with that.
 
 Example content of `09-pihole-local-subdomains.conf` to create custom local wildcard subdomains:
 
-`address=/.home.example.com/192.168.20.80`
+```
+address=/.home.example.com/192.168.20.80
+```
 
 Example content for `10-pihole-dhcp.conf` to supply additinal options to Pihole´s DHCP server:
 
