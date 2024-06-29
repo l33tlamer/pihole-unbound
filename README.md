@@ -46,7 +46,7 @@ Example content for `10-pihole-dhcp.conf` to supply additinal options to PiholeÂ
 dhcp-option=6,192.168.20.50,192.168.20.51
 ### give out specific IP for NTP (option 42)
 dhcp-option=42,192.168.20.40
-### define tags for devices that will receive use Google DNS through DHCP instead
+### define tags for devices that will receive Google DNS instead through DHCP
 dhcp-option=tag:googlednsv4,6,8.8.8.8,8.8.4.4
 ### assing above tag to a specific device by MAC
 dhcp-host=AB:AB:AB:AB:AB:AB,set:googlednsv4
