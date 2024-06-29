@@ -6,6 +6,9 @@ Using official Pihole Docker image and mvance/unbound-rpi for Unbound.
 
 Clone this repo and a simple `docker compose up -d` should be enough.
 
+Login to the Pihole WebUI at `http://<host-ip>/admin` and change your settings.
+Add Unbound as upstream DNS with IPv4 `127.0.0.1#5353` (note the #).
+
 Modify the `compose.yaml` to suit your setup.
 
 Also modify `required/unbound/unbound.conf` to suit your setup.
