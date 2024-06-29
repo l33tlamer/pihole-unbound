@@ -10,7 +10,6 @@ After cloning this repo, your structure should look like this:
     └── dnsmasq.d
         ├── 09-pihole-local-subdomains.conf
         ├── 10-pihole-dhcp.conf
-    └── etc-pihole
     └── unbound
         ├── a-records.conf
         ├── forward-records.conf
