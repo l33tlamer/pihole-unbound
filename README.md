@@ -33,6 +33,10 @@ Add Unbound as upstream DNS with IPv4 `127.0.0.1#5353` (note the #).
 The files `required/dnsmasq.d/09-pihole-local-subdomains.conf` and `required/dnsmasq.d/10-pihole-dhcp.conf`
 are empty placeholders for when you want to customize Pihole with that.
 
+Example content of `09-pihole-local-subdomains.conf` to create custom local wildcard subdomains:
+
+`address=/.home.example.com/192.168.20.80`
+
 Example content for `10-pihole-dhcp.conf` to supply additinal options to Pihole´s DHCP server:
 
 ```
