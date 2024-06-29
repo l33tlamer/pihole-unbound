@@ -1,8 +1,6 @@
-# pihole-unbound-rpi
+# Example of Pihole (v5) with Unbound for Raspberry Pi.
 
-Example setup of Pihole (v5) with Unbound for Raspberry Pi.
-
-Using official Pihole Docker image and mvance/unbound-rpi for Unbound.
+Using [official Pihole Docker image](https://hub.docker.com/r/pihole/pihole) and [mvance/unbound-rpi](https://github.com/MatthewVance/unbound-docker-rpi) for [Unbound](https://nlnetlabs.nl/projects/unbound/about/).
 
 After cloning this repo, your structure should look like this:
 
@@ -20,15 +18,17 @@ After cloning this repo, your structure should look like this:
         └── unbound.conf
 ```
 
-Modify the `compose.yaml` to suit your setup.
+* Modify the `compose.yaml` to suit your setup.
 
-Also modify `required/unbound/unbound.conf` to suit your setup.
+* If you are **not** using a Raspberry Pi, change `image: mvance/unbound-rpi:latest` into `image: mvance/unbound:latest`
 
-A simple `docker compose up -d` should be enough.
+* Modify `required/unbound/unbound.conf` to suit your setup.
 
-Login to the Pihole WebUI at `http://<host-ip>/admin` and change your settings.
+* A simple `docker compose up -d` should be enough.
 
-Add Unbound as upstream DNS with IPv4 `127.0.0.1#5353` (note the #).
+* Login to the Pihole WebUI at `http://<host-ip>/admin` and change your settings.
+
+* Add Unbound as upstream DNS with IPv4 `127.0.0.1#5353` (note the #).
 
 The files `required/dnsmasq.d/09-pihole-local-subdomains.conf` and `required/dnsmasq.d/10-pihole-dhcp.conf`
 are empty placeholders for when you want to customize Pihole with that.
