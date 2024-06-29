@@ -49,3 +49,7 @@ dhcp-host=AB:AB:AB:AB:AB:AB,set:googlednsv4
 
 The files `required/unbound/a-records.conf`, `required/unbound/forward-records.conf`
 and `required/unbound/srv-records.conf` are empty placeholders for when you want to add those custom records to Unbound.
+
+**This is not a guide. This should only serve you as a example for your own setup.**
+
+**Please refer to the documentation of Pihole, the unbound image and Unbound itself.**
