@@ -23,11 +23,7 @@ After cloning this repo, your structure should look like this:
 
 * Modify `required/unbound/unbound.conf` to suit your setup.
 
-* A simple `docker compose up -d` should be enough.
-
-* Login to the Pihole WebUI at `http://<host-ip>/admin` and change your settings.
-
-* Add Unbound as upstream DNS with IPv4 `127.0.0.1#5353` (note the #).
+* In Pihole WebUI, add Unbound as upstream DNS with IPv4 `127.0.0.1#5353` (note the #).
 
 The files `required/dnsmasq.d/09-pihole-local-subdomains.conf` and `required/dnsmasq.d/10-pihole-dhcp.conf`
 are empty placeholders for when you want to customize Pihole with that.
