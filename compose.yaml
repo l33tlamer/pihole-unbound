@@ -14,30 +14,27 @@ services:
     networks:
       - pihole
     ports:
-      - 53:53/tcp     # Plain DNS TCP
       - 53:53/udp     # Plain DNS UDP
+      - 53:53/tcp     # Plain DNS TCP
       - 67:67/udp     # DHCP IPv4 UDP
       - 547:547/udp   # DHCP IPv6 UDP
       - 80:80/tcp     # HTTP Web Interface
     environment:
       - TZ=Europe/Berlin
-      - PUID=1000
-      - PGID=1000
-      - ServerIP=192.168.20.50
-      - WEB_BIND_ADDR=192.168.20.50
-      - IPv6=no
-      - PROXY_LOCATION=pihole
+      - PIHOLE_DNS_=127.0.0.1#5353
+      - WEBPASSWORD=password
     cap_add:
       - NET_ADMIN
     volumes:
-      - ./required/dnsmasq.d/10-pihole-dhcp.conf:/etc/dnsmasq.d/10-pihole-dhcp.conf
-      - ./required/dnsmasq.d/09-pihole-local-subdomains.conf:/etc/dnsmasq.d/09-pihole-local-subdomains.conf      
-      - ./data/dnsmasq.d/:/etc/dnsmasq.d/
-      - ./data/pihole/:/etc/pihole/
+      - "./required/dnsmasq.d/10-pihole-dhcp.conf:/etc/dnsmasq.d/10-pihole-dhcp.conf"
+      - "./required/dnsmasq.d/09-pihole-local-subdomains.conf:/etc/dnsmasq.d/09-pihole-local-subdomains.conf"
+      - "./data/dnsmasq.d/:/etc/dnsmasq.d/"
+      - "./data/pihole/:/etc/pihole/"
     healthcheck:
-      test: "dig google.com @127.0.0.1 -p 53 || exit 1"
-      interval: 15s
+      test: "dig pi.hole @127.0.0.1 -p 53 || exit 1"
       start_period: 120s
+      start_interval: 15s
+      interval: 15s
       timeout: 5s
       retries: 3
 
@@ -47,9 +44,7 @@ services:
     restart: unless-stopped
     network_mode: service:pihole
     environment:
-      - TZ="Europe/Berlin"
-      - PUID=1000
-      - PGID=1000
+      - TZ=Europe/Berlin
     volumes:
       - "./required/unbound/unbound.conf:/opt/unbound/etc/unbound/unbound.conf"
       - "./required/unbound/a-records.conf:/opt/unbound/etc/unbound/a-records.conf"
@@ -57,6 +52,8 @@ services:
       - "./required/unbound/srv-records.conf:/opt/unbound/etc/unbound/srv-records.conf"
     healthcheck:
       test: "drill google.com @127.0.0.1 -p 5353 || exit 1"
+      start_period: 120s
+      start_interval: 15s
       interval: 15s
       timeout: 5s
       retries: 3
