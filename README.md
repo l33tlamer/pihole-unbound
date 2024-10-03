@@ -60,4 +60,16 @@ and `required/unbound/srv-records.conf` are empty placeholders for when you want
 
 **This is not a guide. This should only serve you as a example for your own setup.**
 
+Note that *mvance/unbound* & *mvance/unbound-rpi* are a bit slow with releasing new images for **new Unbound versions**.
+
+If thats a problem for your setup, find a different image to use, or better yet, **build your own**.
+
 **Please refer to the documentation of Pihole, the unbound image and Unbound itself.**
+
+* https://pi-hole.net/
+
+* https://github.com/MatthewVance/unbound-docker/
+
+* https://nlnetlabs.nl/projects/unbound/about/
+
+
