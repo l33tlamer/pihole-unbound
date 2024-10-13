@@ -8,9 +8,6 @@ services:
     hostname: Pihole
     image: pihole/pihole:latest
     restart: unless-stopped
-    depends_on:
-      pihole-unbound:
-        condition: service_healthy
     networks:
       - pihole
     ports:
