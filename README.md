@@ -1,6 +1,6 @@
 # Example of Pihole (v6) with Unbound using Docker
 
-Using [official Pihole Docker image](https://hub.docker.com/r/pihole/pihole) and  [my own image]([https://hub.docker.com/r/pihole/pihole](https://hub.docker.com/r/l33tlamer/unbound-recursive)) for [Unbound](https://nlnetlabs.nl/projects/unbound/about/).
+Using [official Pihole Docker image](https://hub.docker.com/r/pihole/pihole) and  [my own image](https://hub.docker.com/r/l33tlamer/unbound-recursive) for [Unbound](https://nlnetlabs.nl/projects/unbound/about/).
 
 **This is not a guide. This should only serve you as a example for your own setup.**
 
