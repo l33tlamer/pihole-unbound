@@ -1,6 +1,6 @@
-# Example of Pihole (v5) with Unbound using Docker
+# Example of Pihole (v6) with Unbound using Docker
 
-Using [official Pihole Docker image](https://hub.docker.com/r/pihole/pihole) and [mvance/unbound](https://github.com/MatthewVance/unbound-docker) for [Unbound](https://nlnetlabs.nl/projects/unbound/about/).
+Using [official Pihole Docker image](https://hub.docker.com/r/pihole/pihole) for [Unbound](https://nlnetlabs.nl/projects/unbound/about/).
 
 **This is not a guide. This should only serve you as a example for your own setup.**
 
@@ -25,13 +25,11 @@ After **cloning** this repo, your structure should look like this:
 
 * Modify the `compose.yaml` to suit your setup. Note the **WebUI password**.
 
-* If you are using a **Raspberry Pi** (or similar), change `image: mvance/unbound:latest` into `image: mvance/unbound-rpi:latest`
-
 * Modify `required/unbound/unbound.conf` to suit your setup.
 
 * Bring up your stack with `docker compose up -d`
 
-* In Pihole WebUI, make sure Unbound is set as upstream DNS with IPv4 `127.0.0.1#5353` (note the #).
+* In Pihole WebUI, confirm Unbound is set as upstream DNS with IPv4 `127.0.0.1#5353` (note the #).
 
 The files `required/dnsmasq.d/09-pihole-local-subdomains.conf` and `required/dnsmasq.d/10-pihole-dhcp.conf`
 are empty placeholders for when you want to customize Pihole with that.
@@ -60,16 +58,9 @@ and `required/unbound/srv-records.conf` are empty placeholders for when you want
 
 **This is not a guide. This should only serve you as a example for your own setup.**
 
-Note that *mvance/unbound* & *mvance/unbound-rpi* are a bit slow with releasing new images for **new Unbound versions**.
-
-If thats a problem for your setup, find a different image to use, or better yet, **build your own**.
-
-**Please refer to the documentation of Pihole, the unbound image and Unbound itself.**
+**Please refer to the documentation of Pihole and Unbound.**
 
 * https://pi-hole.net/
 
-* https://github.com/MatthewVance/unbound-docker/
-
 * https://nlnetlabs.nl/projects/unbound/about/
-
-
+* 
